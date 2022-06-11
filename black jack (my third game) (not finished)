@@ -1,0 +1,128 @@
+import random
+
+# Values of letters and full stack of cards:
+value = {"J": 10,
+         "Q": 10,
+         "K": 10,
+         "A": 11}
+
+cards = ["2H", "3H", "4H", "5H", "6H", "7H", "8H", "9H", "JH", "QH", "KH", "AH",
+         "2D", "3D", "4D", "5D", "6D", "7D", "8D", "9D", "JD", "QD", "KD", "AD",
+         "2S", "3S", "4S", "5S", "6S", "7S", "8S", "9S", "JS", "QS", "KS", "AS",
+         "2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "JC", "QC", "KC", "AC"]
+
+# Shuffle the cards per stack then shuffle the cards:
+random.shuffle(cards)
+
+# Dictate what cards will be dealt:
+first_card = cards[0]
+second_card = cards[2]
+third_card = cards[4]
+fourth_card = cards[5]
+dealer_first_card = cards[1]
+dealer_second_card = cards[3]
+
+# show the player the dealt cards:
+print(f"your cards are {first_card} and {second_card}")
+print(f"dealers first card is {dealer_first_card}")
+
+# Remove the letter after each number to make math easier
+first_card = first_card[:1]
+second_card = second_card[:1]
+dealer_first_card = dealer_first_card[:1]
+dealer_second_card = dealer_second_card[:1]
+
+# player_sum = int(first_card) + int(second_card)
+
+
+# Calculate the total sum of the players cards:
+try:
+    player_sum = int(first_card[0]) + int(second_card[0])
+    print(player_sum)
+except ValueError:
+    if first_card != "A" and second_card != "A":
+        try:
+            player_sum = 10 + int(second_card[0])
+            print(f"v error 1: {first_card}, {second_card}")
+            print(player_sum)
+        except ValueError:
+            try:
+                player_sum = int(first_card[0]) + 10
+                print(f"v error 2: {first_card}, {second_card}")
+                print(player_sum)
+            except ValueError:
+                player_sum = 20
+                print(f"v error 3: {first_card}, {second_card}")
+                print(player_sum)
+    else:
+        if first_card == "A" and second_card == "A":
+            player_sum = 12
+            print("double ace ")
+        if first_card == "A":
+            try:
+                player_sum = 11 + int(second_card[0])
+                print(f"Player sum is {player_sum}")
+            except ValueError:
+                player_sum = 21
+                print("Black Jack!")
+        if second_card == "A":
+            try:
+                player_sum = int(first_card[0]) + 11
+                print(f"Player sum is {player_sum}")
+            except ValueError:
+                player_sum = 21
+                print("Black Jack!")
+
+# Calculate the total sum of the dealers cards:
+try:
+    dealer_sum = int(dealer_first_card[0]) + int(dealer_second_card[0])
+except ValueError:
+    if dealer_first_card != "A" and dealer_second_card != "A":
+        try:
+            dealer_sum = 10 + int(dealer_second_card[0])
+            print(f"v error 1: {dealer_first_card}, {dealer_second_card}")
+        except ValueError:
+            try:
+                dealer_sum = int(dealer_first_card[0]) + 10
+                print(f"v error 2: {dealer_first_card}, {dealer_second_card}")
+            except ValueError:
+                dealer_sum = 20
+                print(f"v error 3: {dealer_first_card}, {dealer_second_card}")
+
+    else:
+        if dealer_first_card == "A" and dealer_second_card == "A":
+            dealer_sum = 12
+            print("double ace ")
+        if dealer_first_card == "A":
+            try:
+                dealer_sum = 11 + int(dealer_second_card[0])
+            except ValueError:
+                dealer_sum = 21
+                print("dealer got Black Jack!")
+        if dealer_second_card == "A":
+            try:
+                dealer_sum = int(dealer_first_card[0]) + 11
+            except ValueError:
+                dealer_sum = 21
+                print("Dealer got black Jack!")
+HoS = input("would you like to hit or to stand?: ")
+
+if HoS == "hit":
+    player_sum = player_sum + int(third_card[0])
+    print(F"your third card is {third_card}")
+    print(f"your cards are {first_card}, {second_card}, {third_card}."
+          f"making your total sum {player_sum}")
+    HoS2 = input("would you like to hit or stand: ")
+    if HoS2 == "hit":
+        pass
+    if HoS2 == "pass":
+        pass
+    if player_sum > 21:
+        print("Bust! dealer wins ")
+if HoS == "stand":
+    print(f"The dealers second card is {dealer_second_card}")
+    print(f"your total sum is {player_sum} and the dealers total sum is {dealer_sum}.")
+    if dealer_sum > player_sum:
+        print("The dealer wins ")
+    if dealer_sum < player_sum:
+        print("The player wins")
