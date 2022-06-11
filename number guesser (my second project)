@@ -1,0 +1,24 @@
+import random
+from time import sleep
+rNum = (random.randint(1, 10))
+print("chose a number from 1 to 10 and I will do the same.");sleep(1.5)
+print("let's see how long it takes you for our numbers to be the same.");sleep(1.5)
+gNum = int(input("what number did you choose?: "))
+count = 0
+while gNum != rNum:
+    if gNum == rNum:
+        print("that's my number")
+    if gNum > rNum:
+        gNum = int(input("your number is bigger then mine, so chose a smaller one: ")); count += 1
+        if gNum == rNum:
+            continue
+    if gNum < rNum:
+        gNum = int(input("your number is smaller then mine, so chose a bigger one: ")); count += 1
+        if gNum == rNum:
+            continue
+print(f"I chose {rNum} as well, so you got it right.")
+if count <= 1:
+    print("first try!")
+    print("very dapper.")
+else:
+    print(f"It took you {count} tries this time.")
