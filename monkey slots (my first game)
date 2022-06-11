@@ -1,0 +1,66 @@
+name1 = ("Monkey")
+name2 = ("Ape")
+name3 = ("banana")
+answer = input("are you a gambling man? :")
+if answer == "no" :
+    answer2 =input("are you sure? :")
+    if answer2 == "no" : answer5 = input("want to play slots?")
+    if answer5 == "no" : print("yeah, me neither.") + exit()
+elif answer5 == "yes" :
+    import random
+    random_number1 = random.randint(1,3)
+    print(random_number1)
+
+    if 1 == random_number1 :print(name1)
+    if random_number1 == 2 :print(name2)
+    if random_number1 == 3 :print(name3)
+
+    random_number2 =random.randint(1,3)
+    print(random_number2)
+
+    if 1 == random_number2 :print(name1)
+    if random_number2 == 2 :print(name2)
+    if random_number2 == 3 :print(name3)
+
+    random_number3 =random.randint(1,3)
+    print(random_number3)
+
+    if 1 == random_number3 :print(name1)
+    if random_number3 == 2 :print(name2)
+    if random_number3 == 3 :print(name3)
+
+    if random_number1 == random_number2 == random_number3 == 3 :print("banana time!")
+    if random_number1 == random_number2 == random_number3 == 2 :print("Ape win!")
+    if random_number1 == random_number2 == random_number3 == 1 :print("Monkey togetha!")
+if answer2 == "yes" :input("okay. :( crying right now hope you're happy with yourself.")
+if answer == "yes" : answer4 = input("do you feel like doing slots? :")
+if answer4 == "no" : print("yeah me neither") + exit()
+if answer4 == "yes" :
+    import random
+    random_number1 = random.randint(1,3)
+    print(random_number1)
+
+    if 1 == random_number1 :print(name1)
+    if random_number1 == 2 :print(name2)
+    if random_number1 == 3 :print(name3)
+
+    random_number2 =random.randint(1,3)
+    print(random_number2)
+
+    if 1 == random_number2 :print(name1)
+    if random_number2 == 2 :print(name2)
+    if random_number2 == 3 :print(name3)
+
+    random_number3 =random.randint(1,3)
+    print(random_number3)
+
+    if 1 == random_number3 :print(name1)
+    if random_number3 == 2 :print(name2)
+    if random_number3 == 3 :print(name3)
+
+    if random_number1 == random_number2 == random_number3 == 3 :print("banana time!")
+    if random_number1 == random_number2 == random_number3 == 2 :print("Ape win!")
+    if random_number1 == random_number2 == random_number3 == 1 :print("Monkey togetha!")
+answer3 = input("want to go again? :")
+if answer3 == "yes" : print("too bad kid") + exit()
+if answer3 == "no" : print("well fuck you too") + exit ()
