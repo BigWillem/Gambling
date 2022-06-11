@@ -108,13 +108,34 @@ except ValueError:
 HoS = input("would you like to hit or to stand?: ")
 
 if HoS == "hit":
-    player_sum = player_sum + int(third_card[0])
-    print(F"your third card is {third_card}")
-    print(f"your cards are {first_card}, {second_card}, {third_card}."
-          f"making your total sum {player_sum}")
-    HoS2 = input("would you like to hit or stand: ")
+    try:
+        player_sum = player_sum + int(third_card[0])
+        print(F"your third card is {third_card}")
+        print(f"your cards are {first_card}, {second_card}, {third_card}."
+                  f"making your total sum {player_sum}")
+        if player_sum > 21:
+                print("bust")
+    except ValueError:
+        player_sum = player_sum + 10
+        print(third_card)
+        print(f"your total sum is: {player_sum}")
+        if player_sum > 21:
+            print("bust")
+if player_sum < 21:
+    HoS2 = input("would you like to hit or stand?: ")
     if HoS2 == "hit":
-        pass
+        try:
+            player_sum = player_sum + int(fourth_card[0])
+            if player_sum > 21:
+                print(f"your fourth card is {fourth_card}, you've gone bust!")
+            if player_sum == 21:
+                print(f"21! you win")
+            else:
+                print(f"Your fourth card is {fourth_card} making your total sum {player_sum}")
+                HoS3 = input("would you like to hit or stand?: ")
+        except ValueError:
+            player_sum = player_sum + 10
+
     if HoS2 == "pass":
         pass
     if player_sum > 21:
