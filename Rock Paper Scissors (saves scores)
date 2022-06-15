@@ -2,14 +2,13 @@ import random
 import os
 import shutil
 
-path = "C:\\Users\\tijnf\\Documents\\kopie van map\\rps_score.txt"
+path = "C:\\Users\\Me(not typing that one out lol)\\Documents\\kopie van map\\rps_score.txt"
 
 
 with open(path, "r") as file:
     lines = file.readlines()
-    print(lines[15:17])
-    score = {"player": 0,
-             "computer": 0}
+    score = {"player": int(lines[0][16:17]),
+             "computer": int(lines[1][18:19])}
 
 
 def player_win():
